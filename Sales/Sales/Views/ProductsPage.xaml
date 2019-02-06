@@ -19,11 +19,13 @@
                         <ViewCell>
                             <Grid>
                                 <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto"/>
                                     <ColumnDefinition Width="*"/>
                                     <ColumnDefinition Width="*"/>
                                 </Grid.ColumnDefinitions>
-                                <Label Grid.Column="0" Text="{Binding Description}" FontAttributes="Bold" TextColor="Black"/>
-                                <Label Grid.Column="1" Text="{Binding Price,StringFormat='{0:C2}'}" HorizontalOptions="End"/>
+                                <Image Grid.Column="0" Source="{Binding ImageFullPath}" WidthRequest="100" VerticalOptions="Center"/>
+                                <Label Grid.Column="1" Text="{Binding Description}" FontAttributes="Bold" TextColor="Black"/>
+                                <Label Grid.Column="2" Text="{Binding Price,StringFormat='{0:C2}'}" HorizontalOptions="End" VerticalOptions="Center"/>
                             </Grid>
                         </ViewCell>
                     </DataTemplate>
