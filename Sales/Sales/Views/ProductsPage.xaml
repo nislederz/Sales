@@ -5,8 +5,13 @@
              xmlns:i18n="clr-namespace:Sales.Helpers"
              BindingContext="{Binding Main, Source={StaticResource Locator}}"
              Title="{i18n:Translate Products}">
+    
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Icon="ic_action_add_circle.png" Command="{Binding AddProductCommand}"/>
+    </ContentPage.ToolbarItems>
+    
     <ContentPage.Content>
-        
+
         <StackLayout BindingContext="{Binding Products}" Padding="5">
             <ListView 
                 ItemsSource="{Binding Products}" 
@@ -17,6 +22,10 @@
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
+                            <ViewCell.ContextActions>
+                                <MenuItem Text="{i18n:Translate Edit}" Command="{Binding EditProductCommand}"/>
+                                <MenuItem Text="{i18n:Translate Delete}" Command="{Binding DeleteProductCommand}" IsDestructive="True"/>
+                            </ViewCell.ContextActions>
                             <Grid>
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="Auto"/>
@@ -24,7 +33,10 @@
                                     <ColumnDefinition Width="*"/>
                                 </Grid.ColumnDefinitions>
                                 <Image Grid.Column="0" Source="{Binding ImageFullPath}" WidthRequest="100" VerticalOptions="Center"/>
-                                <Label Grid.Column="1" Text="{Binding Description}" FontAttributes="Bold" TextColor="Black"/>
+                                <StackLayout Grid.Column="1" VerticalOptions="Center">
+                                    <Label  Text="{Binding Description}" FontAttributes="Bold" TextColor="Black"/>
+                                    <Label  Text="{Binding Remarks}" TextColor="Black"/>
+                                </StackLayout>
                                 <Label Grid.Column="2" Text="{Binding Price,StringFormat='{0:C2}'}" HorizontalOptions="End" VerticalOptions="Center"/>
                             </Grid>
                         </ViewCell>
@@ -32,6 +44,7 @@
                 </ListView.ItemTemplate>
             </ListView>
         </StackLayout>
-        
+
     </ContentPage.Content>
+    
 </ContentPage>
