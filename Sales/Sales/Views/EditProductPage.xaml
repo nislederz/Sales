@@ -44,7 +44,12 @@
                 </Grid>
 
                 <ActivityIndicator VerticalOptions="CenterAndExpand" IsRunning="{Binding IsRunning}"/>
-                <Button Text="{i18n:Translate Save}" BorderRadius="20"  BackgroundColor="Navy" TextColor="White" IsEnabled="{Binding IsEnable}" Command="{Binding SaveCommand}"/>
+                
+                <StackLayout Orientation="Horizontal">
+                    <Button Text="{i18n:Translate Save}" BorderRadius="20"  BackgroundColor="Navy" TextColor="White" IsEnabled="{Binding IsEnable}" Command="{Binding SaveCommand}" HorizontalOptions="FillAndExpand"/>
+                    <Button Text="{i18n:Translate Delete}" BorderRadius="20"  BackgroundColor="Red" TextColor="White" IsEnabled="{Binding IsEnable}" Command="{Binding DeleteCommand}" HorizontalOptions="FillAndExpand"/>
+                </StackLayout>
+                
             </StackLayout>
         </ScrollView>
     </ContentPage.Content>
