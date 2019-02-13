@@ -33,6 +33,7 @@
                         <TapGestureRecognizer Command="{Binding ForgotPasswordComand}"/>
                     </Label.GestureRecognizers>
                 </Label>
+                
                 <ActivityIndicator  IsRunning="{Binding IsRunning}"  VerticalOptions="CenterAndExpand"/>
                 
                 <StackLayout  Margin="40,0"  Orientation="Horizontal"  VerticalOptions="CenterAndExpand">
